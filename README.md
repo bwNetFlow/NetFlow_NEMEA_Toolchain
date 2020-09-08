@@ -5,7 +5,7 @@ This README describes a exemplary toolchain to use the bwNetFlow NetFlow v9 expo
 ![Toolchain Overview](sec_architecture.png "bwNetFlow NEMEA Overview")
 
 ## Installation of All Necessary Tools
-The toolchain needs the following tools to work: bwNetFlow NetFlow v9 Exporter, ipfixcol2 and the NEMEA framework.
+The toolchain needs the following tools to work: bwNetFlow NetFlow v9 Exporter, IPFIXcol2 and the NEMEA framework.
 Follow the instructions of the respective tool for a proper installation.
 
  bwNetFlow NetFlow v9 Exporter: https://github.com/bwNetFlow/protobuf_to_netflow_converter
@@ -13,3 +13,9 @@ Follow the instructions of the respective tool for a proper installation.
  ipfixcol2: https://github.com/CESNET/ipfixcol2
  
  NEMEA framework: https://github.com/CESNET/Nemea-Framework
+
+## Exemplary Toolchain Using NEMEA IP Blacklistfilter
+### NetFlow Exporter
+### IPFIXcol2
+### IP Blacklistfilter
+### logger
