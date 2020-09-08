@@ -12,4 +12,4 @@ Follow the instructions of the respective tool for a proper installation.
  
  ipfixcol2: https://github.com/CESNET/ipfixcol2
  
- NEMEA framework:https://github.com/CESNET/Nemea-Framework
+ NEMEA framework: https://github.com/CESNET/Nemea-Framework
