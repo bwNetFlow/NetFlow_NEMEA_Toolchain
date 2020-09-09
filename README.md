@@ -21,6 +21,10 @@ To start the NetFlow in a mode that it can pass the NetFlow packets to IPFIXcol2
 dst_ip: 127.0.0.1
 dst_port: 2055
 ```
+The exporter can then be started as follows:
+```
+sudo ./main config.ini
+```
 ### IPFIXcol2
 ### IP Blacklistfilter
 ### logger
