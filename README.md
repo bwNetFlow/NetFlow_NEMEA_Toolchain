@@ -16,6 +16,9 @@ Follow the instructions of the respective tool for a proper installation.
 
 ## Exemplary Toolchain Using NEMEA IP Blacklistfilter
 ### NetFlow Exporter
+To start the NetFlow in a mode that it can pass the NetFlow packets to IPFIXcol2 you must define the destination address (dst_ip) and destination port (dst-port) in the exporter settings file as following:
+ dst_ip: 127.0.0.1
+ dst_port: 2055
 ### IPFIXcol2
 ### IP Blacklistfilter
 ### logger
