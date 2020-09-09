@@ -67,5 +67,17 @@ The IPFIXcol2 collector must be modified in a way that it accepts NetFlow packet
   </outputPlugins>
 </ipfixcol2>
 ```
+In this example, the collector exports the IPFIX packets on port 8000. This must be considered in following modules.
 ### IP Blacklistfilter
+The IP blacklistfilter can process packets exported by the IPFIXcol2 collector. The results are then sent to the subsequent logger. Thus, the interface on which the filter expects IPFIX packets and the export interface to the logger must defined.
+This can be exemplarily done as follows:
+```
+/usr/bin/nemea/ipblacklistfilter -i "t:8000,u:ipbl"
+```
+Where /usr/bin/nemea is the common location where all modules are installed. t:8000 defines the interface on which IPFIX packets are expected. u:ipbl is the exporting socket, where ipbl is a user defined tag, which stands for ip blacklist in this case. 
 ### logger
+NEMEA's logger module only needs a defined interface on which incoming data are expected. This can be done as follows:
+```
+/usr/bin/nemea/logger -i "u:ipbl"
+```
+In this example, the logger prints all alerts to stdout. The see logger help page for more advanced options.
