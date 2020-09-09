@@ -26,5 +26,46 @@ The exporter can then be started as follows:
 sudo ./main config.ini
 ```
 ### IPFIXcol2
+The IPFIXcol2 collector must be modified in a way that it accepts NetFlow packets on dst_ip:dst_port. This can be exemplarily done as follows
+```
+<ipfixcol2>
+  <!-- Input plugins -->
+  <inputPlugins>
+    <input>
+      <name>UDP collector</name>
+      <plugin>udp</plugin>
+      <params>
+        <localPort>2055</localPort>
+        <localIPAddress></localIPAddress>
+      </params>
+    </input>
+  </inputPlugins>
+
+  <!-- Output plugins -->
+  <outputPlugins>
+    <output>
+      <name>UniRec output</name>
+      <plugin>unirec</plugin>
+      <params>
+        <!-- UniRec template -->
+        <uniRecFormat>TIME_FIRST,TIME_LAST,SRC_IP,DST_IP,PROTOCOL,SRC_PORT,DST_PORT,?TCP_FLAGS,PACKETS,BYTES,?LINK_BIT_FIELD,?DIR_BIT_FIELD</uniRecFormat>
+        <!-- TRAP interface configuration -->
+        <trapIfcCommon>
+          <timeout>NO_WAIT</timeout>
+          <buffer>true</buffer>
+          <autoflush>500000</autoflush>
+        </trapIfcCommon>
+        <!-- TRAP interface specification -->
+        <trapIfcSpec>
+          <tcp>
+            <port>8000</port>
+            <maxClients>64</maxClients>
+          </tcp>
+        </trapIfcSpec>
+      </params>
+    </output>
+  </outputPlugins>
+</ipfixcol2>
+```
 ### IP Blacklistfilter
 ### logger
